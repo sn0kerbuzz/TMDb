@@ -1,4 +1,4 @@
-import Combine
+import OpenCombine
 import Foundation
 
 public final class TMDbTVShowSeasonService: TVShowSeasonService {

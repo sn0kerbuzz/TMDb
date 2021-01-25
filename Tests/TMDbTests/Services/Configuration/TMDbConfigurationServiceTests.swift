@@ -1,4 +1,4 @@
-import Combine
+import OpenCombine
 @testable import TMDb
 import XCTest
 

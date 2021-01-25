@@ -1,11 +1,12 @@
-import Combine
+import OpenCombine
+import OpenCombineFoundation
 import Foundation
 
 final class TMDbAPIClient: APIClient {
 
     private static let baseURL = URL(string: "https://api.themoviedb.org/3")!
 
-    private let urlSession: URLSession
+	private let urlSession: URLSession.OCombine
     private let jsonDecoder: JSONDecoder
 
     private(set) var apiKey: String = ""
@@ -18,7 +19,7 @@ final class TMDbAPIClient: APIClient {
 
     init(urlSession: URLSession = URLSession(configuration: URLSessionConfiguration.default),
          jsonDecoder: JSONDecoder = .theMovieDatabase) {
-        self.urlSession = urlSession
+		self.urlSession = URLSession.OCombine(urlSession)
         self.jsonDecoder = jsonDecoder
     }
 

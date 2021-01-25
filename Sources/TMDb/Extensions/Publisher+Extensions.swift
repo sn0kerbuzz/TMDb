@@ -1,7 +1,8 @@
-import Combine
 import Foundation
+import OpenCombine
+import OpenCombineFoundation
 
-extension URLSession.DataTaskPublisher {
+extension URLSession.OCombine.DataTaskPublisher {
 
     func mapTMDbError() -> AnyPublisher<Output, TMDbError> {
         self
@@ -32,13 +33,11 @@ extension URLSession.DataTaskPublisher {
             }
             .eraseToAnyPublisher()
     }
-
 }
 
 extension Publisher where Output == URLSession.DataTaskPublisher.Output {
 
-    func mapResponse<Output: Decodable>(to outputType: Output.Type,
-                                        decoder: JSONDecoder) -> AnyPublisher<Output, TMDbError> {
+    func mapResponse<Output: Decodable>(to outputType: Output.Type, decoder: JSONDecoder) -> AnyPublisher<Output, TMDbError> {
         self
             .map { $0.data }
             .decode(type: outputType, decoder: decoder)

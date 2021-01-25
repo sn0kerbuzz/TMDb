@@ -1,4 +1,4 @@
-import Combine
+import OpenCombine
 import Foundation
 
 final class TMDbConfigurationService: ConfigurationService {

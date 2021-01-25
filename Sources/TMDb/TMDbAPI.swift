@@ -1,4 +1,4 @@
-import Combine
+import OpenCombine
 import Foundation
 
 /// The Movie Database API.
