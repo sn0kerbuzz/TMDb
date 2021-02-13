@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "TMDb",
+	name: "TMDb",
 	platforms: [
 		.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)
 	],
@@ -11,7 +11,7 @@ let package = Package(
 		.library(name: "TMDb", targets: ["TMDb"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/OpenCombine/OpenCombine.git", from: "0.11.0")
+		.package(url: "https://github.com/OpenCombine/OpenCombine.git", from: "0.12.0")
 	],
 	targets: [
 		.target(
@@ -22,6 +22,6 @@ let package = Package(
 				.product(name: "OpenCombineDispatch", package: "OpenCombine")
 			]
 		),
-        .testTarget(name: "TMDbTests", dependencies: ["TMDb"])
-    ]
+		.testTarget(name: "TMDbTests", dependencies: ["TMDb"])
+	]
 )
